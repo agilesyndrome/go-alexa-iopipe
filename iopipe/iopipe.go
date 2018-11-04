@@ -25,10 +25,13 @@ func Tag(ctx context.Context, req alexa.Request) {
      intent_name = "(blank)"
    }
 
+   context.IOpipe.Tag(intent_name)
+
    //Metrics
    context.IOpipe.Metric("version", req.Version)
    context.IOpipe.Metric("type", req.Body.Type)
    context.IOpipe.Metric("Timestamp", req.Body.Timestamp)
+   context.IOpipe.Metric("intent_name", req.Body.Intent.Name)
    context.IOpipe.Metric("RequestID", req.Body.RequestID)
    context.IOpipe.Metric("session.isNew", strconv.FormatBool(req.Session.New))
    context.IOpipe.Metric("session.ID", req.Session.SessionID)

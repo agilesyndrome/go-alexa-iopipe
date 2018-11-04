@@ -25,7 +25,7 @@ func Tag(ctx context.Context, req alexa.Request) {
      intent_name = "(blank)"
    }
 
-   context.IOpipe.Tag(intent_name)
+   context.IOpipe.Label(intent_name)
 
    //Metrics
    context.IOpipe.Metric("version", req.Version)

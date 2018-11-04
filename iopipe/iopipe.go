@@ -14,8 +14,7 @@ var (
   agent = iopipe.NewAgent(iopipe.Config{})
 )
 
-func Start(skill_name string, ctx context.Context, req alexa.Request, handler LambdaHandler) (interface{}) {
-  Tag(skill_name, ctx, req)
+func WrapHandler(handler LambdaHandler) (interface{}) {
   return agent.WrapHandler(handler)
 }
 

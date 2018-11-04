@@ -8,7 +8,7 @@ import (
 
 )
 
-type LambdaHandler func (context, alexa.Request) (alexa.Response, error)
+type LambdaHandler func (context.Context, alexa.Request) (alexa.Response, error)
 
 var (
   agent = iopipe.NewAgent(iopipe.Config{})

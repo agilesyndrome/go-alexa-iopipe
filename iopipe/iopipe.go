@@ -18,9 +18,8 @@ func WrapHandler(handler LambdaHandler) (interface{}) {
   return agent.WrapHandler(handler)
 }
 
-func Tag(skill_name string, ctx context.Context, req alexa.Request) {
+func Tag(ctx context.Context, req alexa.Request) {
    context, _ := iopipe.FromContext(ctx)
-   context.IOpipe.Label(skill_name)
    intent_name := req.Body.Intent.Name
    if ( intent_name == "" ) {
      intent_name = "(blank)"
